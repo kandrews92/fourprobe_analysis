@@ -5,21 +5,24 @@ from copy_data import write_computed_data_to_new_excel
 from compute_data import find_trace, compute_conductivity
 from excel_manipulation import create_wbook_sheet
 from excel_manipulation import create_new_wbook_sheet
-from user_input import get_length, get_width
-
-
+from user_input import get_filelist, get_user_val
 
 if __name__=="__main__":
 	error = 0 
-	fname = 'kraig.xlsx'
+	#fname = 'kraig.xlsx'
 	sheet_name = 'Data'
 	new_sheet_name = 'Data'
 	new_file_name = 'kraig_new.xls'
+
+	file_num, f_list = get_filelist()
+	fname = f_list[file_num]
+
 	wbook, wsheet, nrows, ncols = create_wbook_sheet(fname, sheet_name)
 	newbook, newsheet = create_new_wbook_sheet(new_sheet_name)
 
-	length = get_length()
-	width = get_width()
+	length = get_user_val('length')
+	width = get_user_val('width')
+
 
 	## initialize data array
 	data = [[[] for i in range(0,nrows)] for j in range(0,ncols)]

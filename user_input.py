@@ -25,6 +25,15 @@ def get_user_val(string):
 			print "Enter a valid number..."
 	return val
 
+def get_user_val_str(string):
+	while True:
+		try: 
+			val = str(raw_input('Enter %s: ' %(string)))
+			break
+		except ValueError:
+			print "Enter a valid number..."
+	return val
+
 def get_filelist():
 	try:
 		import os
@@ -41,7 +50,7 @@ def get_filelist():
 		f.extend( name for name in filenames)
 
 	for i in range(0,len(f)):
-		if f[i].endswith('.xls') or f[i].endswith('.xlsx'): 
+		if f[i].endswith('.xlsx'): 
 			idx = i
 			fname.append(f[idx])
 	print

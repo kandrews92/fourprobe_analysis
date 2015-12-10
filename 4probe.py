@@ -34,10 +34,16 @@ if __name__=="__main__":
 	newbook, newsheet = create_new_wbook_sheet(new_sheet_name)
 
 	## get user input values
-	length = get_user_val('length')
-	width = get_user_val('width')
+	length4 = get_user_val('4-probe length')
+	length2 = get_user_val('2-probe length')
+	width4 = get_user_val('4-probe width')
+	width2 = get_user_val('2-probe width')
+
 	capacitence = get_user_val('capacitence')
 
+	## string for four probe length header
+	f_probe_str ='4probe S(uS) L/W='+str(length4)+"/"+str(width4) 
+	t_probe_str = '2probe S(uS) L/W='+str(length2)+"/"+str(width2)
 
 	## initialize data array
 	data = [[[] for i in range(0,nrows)] for j in range(0,ncols)]
@@ -47,29 +53,30 @@ if __name__=="__main__":
 	copy_data_to_newsheet(newsheet, data, ncols, nrows)
 
 	## compute V3-V2, conductivity
-	diffV,conductivity =compute_conductivity(data,newsheet,ncols,nrows, length, width)
+	diffV,conductivity,abs_conductivity =compute_conductivity(data,newsheet,ncols,nrows, length4, width4, f_probe_str, t_probe_str)
 
 	## init new data array of calc vals
-	new_data = [[[] for i in range(0,nrows)] for j in range(0, 4)]
+	new_data = [[[] for i in range(0,nrows)] for j in range(0, 5)]
 	## assign calc vals to new data array
 	new_data[0][:] = diffV
 	new_data[1][:] = conductivity
+	new_data[2][:] = abs_conductivity
 	## compute trace and retrace of conductivity
-	trace, retrace = find_trace(data, new_data, ncols, nrows, length, width)
+	trace, retrace = find_trace(data, new_data, ncols, nrows, length4, width4,f_probe_str)
 	## assign trace, retrace vals to new data array
-	new_data[2][:] = trace
-	new_data[3][:] = retrace
+	new_data[3][:] = trace
+	new_data[4][:] = retrace
 	## compute FE mobility
 	##...
 	## write trace, retrace to new data file and 
 	## place them in the correct row with corresponding Vbg
-	for i in range(ncols+2, ncols+3):
-		for j in range(0, len(new_data[2][:])):
-			newsheet.write(j,i,new_data[2][j])
-	newsheet.write(0,ncols+3,new_data[3][0])
 	for i in range(ncols+3, ncols+4):
-		for j in range(1, len(new_data[3][:])):
-			newsheet.write(j+len(new_data[3][:])-1,i,new_data[3][j])
+		for j in range(0, len(new_data[3][:])):
+			newsheet.write(j,i,new_data[3][j])
+	newsheet.write(0,ncols+4,new_data[4][0])
+	for i in range(ncols+4, ncols+5):
+		for j in range(1, len(new_data[4][:])):
+			newsheet.write(j+len(new_data[4][:])-1,i,new_data[4][j])
 	## finish writing to new excel file
 	write_computed_data_to_new_excel(new_data, newsheet, ncols, nrows)
 	## save new workbook and error check
@@ -89,6 +96,7 @@ if __name__=="__main__":
 	print
 	print "Original data file: ", fname
 	print "Created data file: ", new_file_name
-	print "L/W= ", length,"/",width
+	print "4-probe L/W= ", length4,"/",width4
+	print "2-probe L/W= ", length2,"/",width2
 	print "*"*40
 	print

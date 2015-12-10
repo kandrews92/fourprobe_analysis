@@ -35,6 +35,7 @@ if __name__=="__main__":
 	## get user input values
 	length = get_user_val('length')
 	width = get_user_val('width')
+	#capacitence = get_user_val('capacitence')
 
 
 	## initialize data array

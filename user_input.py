@@ -50,9 +50,10 @@ def get_filelist():
 		f.extend( name for name in filenames)
 
 	for i in range(0,len(f)):
-		if f[i].endswith('.xlsx'): 
-			idx = i
-			fname.append(f[idx])
+		if f[i].endswith('.xlsx') or f[i].endswith('xls'): 
+			if 'analyzed' not in f[i]:
+				idx = i
+				fname.append(f[idx])
 	print
 	print "*"*40
 	print "Files available for analysis:"

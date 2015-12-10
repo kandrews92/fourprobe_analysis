@@ -14,6 +14,7 @@ from search_tools import find_col_idx
 from copy_data import extract_data, copy_data_to_newsheet
 from copy_data import write_computed_data_to_new_excel
 from compute_data import find_trace, compute_conductivity
+from compute_data import  compute_fe_mobility
 from excel_manipulation import create_wbook_sheet
 from excel_manipulation import create_new_wbook_sheet
 from user_input import get_filelist, get_user_val
@@ -35,7 +36,7 @@ if __name__=="__main__":
 	## get user input values
 	length = get_user_val('length')
 	width = get_user_val('width')
-	#capacitence = get_user_val('capacitence')
+	capacitence = get_user_val('capacitence')
 
 
 	## initialize data array
@@ -58,6 +59,8 @@ if __name__=="__main__":
 	## assign trace, retrace vals to new data array
 	new_data[2][:] = trace
 	new_data[3][:] = retrace
+	## compute FE mobility
+	##...
 	## write trace, retrace to new data file and 
 	## place them in the correct row with corresponding Vbg
 	for i in range(ncols+2, ncols+3):

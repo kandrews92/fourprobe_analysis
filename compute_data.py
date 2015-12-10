@@ -24,7 +24,24 @@ def compute_conductivity(data, newsheet, ncols, nrows, length, width):
 	for i in range(1,nrows):
 		diffVval = data[V3idx][i]-data[V2idx][i]
 		Ids = data[DrainIidx][i]
-		conduct = Ids/diffVval * length/width * 10E6
+		conduct = Ids/diffVval * length/width * 1E6
 		conductivity.append(conduct)
 		diffV.append(diffVval)
 	return  diffV, conductivity
+
+def compute_fe_mobility(data, new_data, ncols, nrows, capacitence, length, width):
+	import numpy as np
+	Vbgidx = find_col_idx(data, 'Vbg', ncols)
+	conduct_idx = find_col_idx(new_data, 'S(uS) L/W='+str(length)+"/"+str(width), ncols)
+	print conduct_idx
+	Vbg = np.zeros(nrows)
+	S = np.zeros(nrows)
+	for i in range(1,nrows):
+		Vbg[i] = data[Vbgidx][i]
+	for i in range(1,nrows):
+		S[i] = data[conduct_idx][i]
+	dVbg = np.diff(Vbg)
+	#for i in range(1,nrows):
+	# mu = dS/dVbg  * 1/C 
+	mobility = np.diff(S)/dVbg * 1/capacitence
+	return mobility

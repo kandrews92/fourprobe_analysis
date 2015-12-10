@@ -1,0 +1,4 @@
+add 4probe in front of S(us) in col headers
+add 2probe column (S-2probe = Ids/Vds * L/W * 1e6)
+add abs(conductivity) for both four probe and 2 probe
+add another length entry, 2probe and four probe lengths are different

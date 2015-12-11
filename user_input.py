@@ -1,37 +1,21 @@
-def get_length():
+def get_user_input(string, seek=1):
+	## string that is the value the user is entering
+	## if seek == 1 (default) enter float
+	## if seek == 2 enter string
+	## if seek == 3 enter integer
 	while True:
 		try:
-			length = float(raw_input('Enter length: '))
-			break
+			if seek == 1:
+				val = float(raw_input('Enter %s: ' %(string)))
+				break
+			elif seek == 2:
+				val = str(raw_input('Enter %s: ' %(string)))
+				break
+			elif seek == 3:
+				val = int(raw_input('Enter %s: ' %(string)))
+				break
 		except ValueError:
-			print "Enter a valid length..."
-	return length
-
-def get_width():
-	while True:
-		try:
-			width = float(raw_input('Enter width: '))
-			break
-		except ValueError:
-			print "Enter a valid width..."
-	return width
-
-def get_user_val(string):
-	while True:
-		try: 
-			val = float(raw_input('Enter %s: ' %(string)))
-			break
-		except ValueError:
-			print "Enter a valid number..."
-	return val
-
-def get_user_val_str(string):
-	while True:
-		try: 
-			val = str(raw_input('Enter %s: ' %(string)))
-			break
-		except ValueError:
-			print "Enter a valid number..."
+			print "Entry not valid, try again..."
 	return val
 
 def get_filelist():
@@ -50,7 +34,7 @@ def get_filelist():
 		f.extend( name for name in filenames)
 
 	for i in range(0,len(f)):
-		if f[i].endswith('.xlsx') or f[i].endswith('xls'): 
+		if f[i].endswith('.xlsx') or f[i].endswith('.xls'): 
 			if 'analyzed' not in f[i]:
 				idx = i
 				fname.append(f[idx])
@@ -68,7 +52,7 @@ def get_filelist():
 			file_num = int(raw_input('File number: '))
 			#if 0 < (file_num - 1) or (file_num-1) >= len(fname):
 			#	print "Enter a valid number..."
-			#	continue
+			#	continu	e
 			if file_num-1 < 0: 
 				print "Enter a valid number..."
 				continue

@@ -6,7 +6,6 @@ setup(name='fourprobe',
 		description='Analysis program for excel sheet and four-probe measurements',
 		author='Kraig Andrews',
 		author_email='kraigandrews1992@gmail.com',
-		packages=['distutils, 'distutils.command', 'xlrd', 'xlwt', 'numpy',
-					'math', 'os', 'sys'
+		packages=['xlrd', 'xlwt', 'numpy','math', 'os', 'sys'
 		],
 	)

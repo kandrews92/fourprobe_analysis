@@ -1,11 +1,11 @@
 from distutils.core import setup
 import py2exe
 
-setup(name='fourprobe', 
+setup(
+		console=['analyze_fourprobe.py'],
+		name='analyze_fourprobe', 
 		version='1.0',
 		description='Analysis program for excel sheet and four-probe measurements',
 		author='Kraig Andrews',
 		author_email='kraigandrews1992@gmail.com',
-		packages=['xlrd', 'xlwt', 'numpy','math', 'os', 'sys'
-		],
 	)

@@ -67,3 +67,13 @@ if __name__=="__main__":
 		print "*** Check to make sure ", new_file_name, " is not open"
 	## output final program stats
 	print
+
+	print
+	print "*"*40
+	print "Program complete "
+	print "*"*40
+	print
+	print "Original data file: ", fname
+	print
+	print "New data file: ", new_file_name
+	print "*"*40

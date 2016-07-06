@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 class InexactFloat(float):
     def __eq__(self, other):
         try:

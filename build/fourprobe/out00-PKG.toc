@@ -1,0 +1,12 @@
+('c:\\Users\\Kraig Andrews\\Documents\\wayne\\research\\scripts\\analysis\\fourprobe\\build\\fourprobe\\out00-PKG.pkg',
+ {'BINARY': 1,
+  'DATA': 1,
+  'EXECUTABLE': 1,
+  'EXTENSION': 1,
+  'PYMODULE': 1,
+  'PYSOURCE': 1,
+  'PYZ': 0},
+ [('out00-PYZ.pyz', 'c:\\Users\\Kraig Andrews\\Documents\\wayne\\research\\scripts\\analysis\\fourprobe\\build\\fourprobe\\out00-PYZ.pyz', 'PYZ'), ('struct', 'C:\\Users\\Kraig Andrews\\AppData\\Local\\Enthought\\Canopy\\App\\appdata\\canopy-1.6.1.3253.win-x86_64\\lib\\struct.pyc', 'PYMODULE'), ('pyimod01_os_path', 'c:\\users\\kraig andrews\\appdata\\local\\enthought\\canopy\\user\\lib\\site-packages\\pyinstaller-3.0-py2.7.egg\\PyInstaller\\loader\\pyimod01_os_path.pyc', 'PYMODULE'), ('pyimod02_archive', 'c:\\users\\kraig andrews\\appdata\\local\\enthought\\canopy\\user\\lib\\site-packages\\pyinstaller-3.0-py2.7.egg\\PyInstaller\\loader\\pyimod02_archive.pyc', 'PYMODULE'), ('pyimod03_importers', 'c:\\users\\kraig andrews\\appdata\\local\\enthought\\canopy\\user\\lib\\site-packages\\pyinstaller-3.0-py2.7.egg\\PyInstaller\\loader\\pyimod03_importers.pyc', 'PYMODULE'), ('pyiboot01_bootstrap', 'c:\\users\\kraig andrews\\appdata\\local\\enthought\\canopy\\user\\lib\\site-packages\\pyinstaller-3.0-py2.7.egg\\PyInstaller\\loader\\pyiboot01_bootstrap.py', 'PYSOURCE'), ('fourprobe', 'c:\\Users\\Kraig Andrews\\Documents\\wayne\\research\\scripts\\analysis\\fourprobe\\fourprobe.py', 'PYSOURCE'), ('fourprobe.exe.manifest', 'c:\\Users\\Kraig Andrews\\Documents\\wayne\\research\\scripts\\analysis\\fourprobe\\build\\fourprobe\\fourprobe.exe.manifest', 'BINARY')],
+ True,
+ None,
+ False)
